@@ -6,7 +6,7 @@ searchButton.addEventListener('click', function () {
         .then(response => response.json())
         .then(result => {
             const articles = result.articles;
-            const cards = generateNewsCards(articles); // Panggil fungsi untuk membuat kartu berita
+            const cards = generateNewsCards(articles);
             document.querySelector('.news-container').innerHTML = cards;
 
             // tombol detail
@@ -21,13 +21,13 @@ searchButton.addEventListener('click', function () {
         .catch(error => console.error('Error:', error));
 });
 
-// Fungsi untuk mengambil detail berita
+// Func detail berita
 function fetchNewsDetail(article) {
-    const newsDetail = generateNewsDetail(article); // Panggil fungsi untuk membuat detail berita
+    const newsDetail = generateNewsDetail(article); 
     document.querySelector('.modal-content').innerHTML = newsDetail;
 }
 
-// Fungsi untuk membuat kartu berita
+// Func card berita
 function generateNewsCards(articles) {
     let cards = '';
     articles.forEach((article, index) => {
@@ -45,7 +45,7 @@ function generateNewsCards(articles) {
     return cards;
 }
 
-// Fungsi untuk membuat detail berita
+// Func untuk membuat detail berita
 function generateNewsDetail(article) {
     return `<div class="modal-header">
                 <h5 class="modal-title" id="newsDetailLabel">${article.title}</h5>
